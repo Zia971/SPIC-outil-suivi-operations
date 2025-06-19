@@ -1,0 +1,478 @@
+/* SPIC 2.0 - Styles personnalisés */
+/* Timeline colorée, badges, interface moderne */
+
+/* ============================================================================ */
+/* VARIABLES CSS GLOBALES */
+/* ============================================================================ */
+
+:root {
+    --primary-color: #1E88E5;
+    --secondary-color: #26A69A;
+    --success-color: #4CAF50;
+    --warning-color: #FF9800;
+    --error-color: #F44336;
+    --info-color: #2196F3;
+    
+    --light-bg: #F5F5F5;
+    --white: #FFFFFF;
+    --dark-text: #212121;
+    --light-text: #666666;
+    
+    --border-radius: 8px;
+    --box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
+
+/* ============================================================================ */
+/* TIMELINE COLORÉE STYLE POWERPOINT */
+/* ============================================================================ */
+
+.timeline-container {
+    position: relative;
+    padding: 20px 0;
+    margin: 20px 0;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(
+        to right,
+        #3498db 0%,
+        #2ecc71 25%,
+        #f39c12 50%,
+        #e74c3c 75%,
+        #9b59b6 100%
+    );
+    border-radius: 3px;
+    transform: translateY(-50%);
+}
+
+.timeline-marker {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: var(--white);
+    border: 3px solid;
+    border-radius: 50%;
+    margin: 0 20px;
+    z-index: 2;
+    transition: var(--transition);
+}
+
+.timeline-marker:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.timeline-marker.completed {
+    border-color: var(--success-color);
+    background: var(--success-color);
+}
+
+.timeline-marker.in-progress {
+    border-color: var(--info-color);
+    background: var(--white);
+}
+
+.timeline-marker.blocked {
+    border-color: var(--error-color);
+    background: var(--error-color);
+}
+
+.timeline-marker.pending {
+    border-color: var(--light-text);
+    background: var(--white);
+}
+
+/* ============================================================================ */
+/* BADGES DE STATUT ET RISQUES */
+/* ============================================================================ */
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: 600;
+    border: 1px solid;
+    margin: 2px;
+    transition: var(--transition);
+}
+
+.status-badge:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--box-shadow);
+}
+
+.status-preparation {
+    background-color: #FFF3E0;
+    color: #FF9800;
+    border-color: #FF9800;
+}
+
+.status-active {
+    background-color: #E8F5E8;
+    color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.status-waiting {
+    background-color: #FFF3E0;
+    color: #FF9800;
+    border-color: #FF9800;
+}
+
+.status-blocked {
+    background-color: #FFEBEE;
+    color: #F44336;
+    border-color: #F44336;
+}
+
+.status-completed {
+    background-color: #E3F2FD;
+    color: #2196F3;
+    border-color: #2196F3;
+}
+
+.status-cancelled {
+    background-color: #F5F5F5;
+    color: #9E9E9E;
+    border-color: #9E9E9E;
+}
+
+/* Badges de risque */
+.risk-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 0.9em;
+    font-weight: 700;
+    border: 2px solid;
+    margin: 2px;
+}
+
+.risk-low {
+    background-color: #E8F5E8;
+    color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.risk-medium {
+    background-color: #FFF3E0;
+    color: #FF9800;
+    border-color: #FF9800;
+}
+
+.risk-high {
+    background-color: #FFEBEE;
+    color: #F44336;
+    border-color: #F44336;
+}
+
+.risk-critical {
+    background-color: #F3E5F5;
+    color: #9C27B0;
+    border-color: #9C27B0;
+}
+
+/* ============================================================================ */
+/* CARTES MÉTRIQUES */
+/* ============================================================================ */
+
+.metric-card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border-left: 4px solid var(--primary-color);
+    transition: var(--transition);
+    margin-bottom: 1rem;
+}
+
+.metric-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--dark-text);
+    margin-bottom: 0.5rem;
+}
+
+.metric-label {
+    color: var(--light-text);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.metric-delta {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.metric-delta.positive {
+    color: var(--success-color);
+}
+
+.metric-delta.negative {
+    color: var(--error-color);
+}
+
+/* ============================================================================ */
+/* BARRES DE PROGRESSION */
+/* ============================================================================ */
+
+.progress-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+    margin: 8px 0;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.6s ease;
+    position: relative;
+}
+
+.progress-bar.success {
+    background: linear-gradient(45deg, #4CAF50, #66BB6A);
+}
+
+.progress-bar.warning {
+    background: linear-gradient(45deg, #FF9800, #FFB74D);
+}
+
+.progress-bar.danger {
+    background: linear-gradient(45deg, #F44336, #E57373);
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+
+/* ============================================================================ */
+/* ALERTES ET NOTIFICATIONS */
+/* ============================================================================ */
+
+.alert-container {
+    border-left: 4px solid;
+    background-color: #f8f9fa;
+    padding: 12px 16px;
+    margin: 8px 0;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.alert-container:hover {
+    box-shadow: var(--box-shadow);
+}
+
+.alert-critical {
+    border-color: var(--error-color);
+    background-color: #FFEBEE;
+}
+
+.alert-high {
+    border-color: var(--warning-color);
+    background-color: #FFF3E0;
+}
+
+.alert-medium {
+    border-color: #FFD54F;
+    background-color: #FFFDE7;
+}
+
+.alert-low {
+    border-color: var(--success-color);
+    background-color: #E8F5E8;
+}
+
+/* ============================================================================ */
+/* ANIMATIONS ET TRANSITIONS */
+/* ============================================================================ */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(30, 136, 229, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(30, 136, 229, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(30, 136, 229, 0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+/* ============================================================================ */
+/* RESPONSIVE DESIGN */
+/* ============================================================================ */
+
+@media (max-width: 768px) {
+    .timeline-marker {
+        margin: 0 10px;
+        width: 16px;
+        height: 16px;
+    }
+    
+    .metric-card {
+        padding: 1rem;
+    }
+    
+    .metric-value {
+        font-size: 1.5rem;
+    }
+    
+    .status-badge, .risk-badge {
+        font-size: 0.7em;
+        padding: 2px 6px;
+    }
+}
+
+/* ============================================================================ */
+/* COMPOSANTS STREAMLIT PERSONNALISÉS */
+/* ============================================================================ */
+
+/* Sidebar personnalisée */
+.css-1d391kg {
+    background-color: #f8f9fa;
+}
+
+/* Boutons personnalisés */
+.stButton > button {
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.stButton > button:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--box-shadow);
+}
+
+/* Métriques Streamlit */
+.metric-container {
+    background: var(--white);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+/* Tableaux */
+.dataframe {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+/* Expanders */
+.streamlit-expanderHeader {
+    border-radius: var(--border-radius);
+    background-color: var(--light-bg);
+}
+
+/* Tabs */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 8px;
+}
+
+.stTabs [data-baseweb="tab"] {
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    background-color: var(--light-bg);
+}
+
+/* ============================================================================ */
+/* UTILITAIRES */
+/* ============================================================================ */
+
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+
+.border-radius { border-radius: var(--border-radius); }
+.box-shadow { box-shadow: var(--box-shadow); }
+.transition { transition: var(--transition); }
+
+.text-primary { color: var(--primary-color); }
+.text-success { color: var(--success-color); }
+.text-warning { color: var(--warning-color); }
+.text-error { color: var(--error-color); }
+.text-info { color: var(--info-color); }
+
+.bg-light { background-color: var(--light-bg); }
+.bg-white { background-color: var(--white); }
+
+/* ============================================================================ */
+/* THÈME SOMBRE (OPTIONNEL) */
+/* ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --light-bg: #2d2d2d;
+        --white: #1e1e1e;
+        --dark-text: #ffffff;
+        --light-text: #cccccc;
+    }
+    
+    .metric-card {
+        background-color: var(--white);
+        color: var(--dark-text);
+    }
+    
+    .timeline-marker {
+        background-color: var(--white);
+    }
+}
