@@ -819,3 +819,5 @@ __all__ = [
     'validate_date_range',
     'get_next_business_day'
 ]
+
+# PAGINATION_LIMITS n'existe pas dans constants.py !
