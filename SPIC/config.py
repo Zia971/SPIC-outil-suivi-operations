@@ -490,7 +490,7 @@ DOMAINES_ACTIVITE = [
 
 # Secteur géographique = CHAMP LIBRE (pas de liste prédéfinie)
 SECTEUR_GEOGRAPHIQUE_LIBRE = True  # Permet saisie libre dans l'interface
-}
+
 
 # ============================================================================
 # FORMATS D'EXPORT ET TEMPLATES
